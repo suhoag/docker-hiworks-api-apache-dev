@@ -5,10 +5,6 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get  install apt-utils software-properties-common tzdata apache2 vim -y && \
     ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
-# php 저장소 추가 및 시스템 업데이트
-RUN add-apt-repository ppa:ondrej/php -y && \
-    apt-get update && apt upgrade -y
-
 #apache 모듈 활성화
 RUN a2enmod proxy_fcgi setenvif rewrite ssl
 
