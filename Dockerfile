@@ -2,6 +2,7 @@ FROM ubuntu
 
 # 업데이트 및 모듈 설치
 RUN apt-get update && \
+    apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive apt-get  install apt-utils software-properties-common tzdata apache2 vim -y && \
     ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 
