@@ -2,7 +2,8 @@ FROM ubuntu
 
 COPY custom.crt /etc/ssl/certs/
 
-RUN /etc/ssl/certs/custom.crt >> /etc/ssl/certs/ca-certificates.crt
+RUN cat /etc/ssl/certs/custom.crt >> /etc/ssl/certs/ca-certificates.crt && \
+    rm -fr /etc/ssl/certs/custom.crt
 
 # 업데이트 및 모듈 설치
 RUN apt-get update && \
